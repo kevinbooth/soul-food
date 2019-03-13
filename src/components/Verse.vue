@@ -3,7 +3,7 @@
     <div class="verse__hero">
       <div class="container">
         <h1>verse of the day</h1>
-        <h2>john 3:16</h2>
+        <h2>{{ this.verse.reference }}</h2>
       </div>
     </div>
   </div>
@@ -19,7 +19,7 @@ export default {
   },
   data() {
     return {
-      verse: "",
+      verse: {},
       bibleVersion: "de4e12af7f28f599-01",
       error: []
     };
@@ -32,13 +32,12 @@ export default {
         }?&limit=10000&sort=${this.randomSort}`
       )
       .then(response => {
-        // console.log(response);
-        // console.log(response.data.data.verses[566])
+        console.log(response);
         this.verse =
           response.data.data.verses[
-            Math.floor(Math.random() * response.data.verses.length)
+            Math.floor(Math.random() * response.data.data.verses.length)
           ];
-        // console.log(this.verse)
+        console.log(this.verse);
       })
       .catch(e => {
         this.error = e;
