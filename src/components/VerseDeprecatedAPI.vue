@@ -3,15 +3,12 @@
     <div class="verse__hero">
       <div class="container">
         <h5 class="verse__meta">verse of the day</h5>
-        <h2 class="verse__reference">
-          {{ this.verse.book }} {{ this.verse.chapter }}:{{ this.verse.number }}
-          KJV
-        </h2>
+        <h2 class="verse__reference">{{ this.verse.reference }}</h2>
       </div>
     </div>
     <div class="container">
       <div class="verse__copy">
-        <h4>{{ this.verse.verse }}</h4>
+        <h4>{{ this.verse.text }}</h4>
       </div>
     </div>
   </div>
@@ -28,22 +25,38 @@ export default {
   data() {
     return {
       verse: {},
+      bibleVersion: "de4e12af7f28f599-01",
       error: []
     };
   },
   created() {
     https
-      .get("vod.json")
+      .get(
+        `bibles/${this.bibleVersion}/search?query=?${
+          this.randomVowel
+        }?&limit=10000&sort=${this.randomSort}`
+      )
       .then(response => {
         // console.log(response);
-        this.verse = response.data.contents;
+        this.verse =
+          response.data.data.verses[
+            Math.floor(Math.random() * response.data.data.verses.length)
+          ];
         // console.log(this.verse);
       })
       .catch(e => {
         this.error = e;
       });
   },
-  computed: {}
+  computed: {
+    randomVowel: () => {
+      return "aeiouy"[Math.floor(Math.random() * "aeiouy".length)];
+    },
+    randomSort: () => {
+      let sortOptions = ["reverse-canonical", "canonical", "relevance"];
+      return sortOptions[Math.floor(Math.random() * sortOptions.length)];
+    }
+  }
 };
 </script>
 
