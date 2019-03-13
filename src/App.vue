@@ -4,6 +4,7 @@
       <router-link to="/"
         ><img class="app__logo" alt="Jesus Christ" src="./assets/logo.png"
       /></router-link>
+      <span class="app__title">soulFood</span>
       <!--<router-link to="/about">About</router-link>-->
     </div>
     <router-view />
@@ -30,5 +31,9 @@
 }
 .app__logo {
   max-width: 70px;
+}
+.app__title {
+  font-family: monospace, sans-serif;
+  font-size: 16px;
 }
 </style>
