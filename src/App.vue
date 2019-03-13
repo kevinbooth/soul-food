@@ -4,7 +4,7 @@
       <router-link to="/"
         ><img class="app__logo" alt="Jesus Christ" src="./assets/logo.png"
       /></router-link>
-      <router-link to="/about">About</router-link>
+      <!--<router-link to="/about">About</router-link>-->
     </div>
     <router-view />
   </div>
