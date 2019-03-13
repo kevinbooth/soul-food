@@ -21,6 +21,7 @@
 #nav {
   padding-top: 30px;
   padding-bottom: 30px;
+  text-align: center;
   a {
     font-weight: bold;
     color: #2c3e50;
@@ -31,9 +32,14 @@
 }
 .app__logo {
   max-width: 70px;
+
+  @media screen and (min-width: 350px) {
+    max-width: 100px;
+  }
 }
 .app__title {
   font-family: monospace, sans-serif;
   font-size: 16px;
+  display: block;
 }
 </style>

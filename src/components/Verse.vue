@@ -55,7 +55,8 @@ export default {
   font-weight: 600 !important;
   padding: 20px 0;
   text-align: left;
-  margin: 0;
+  margin: 0 auto;
+  max-width: 800px;
 }
 .verse__meta {
   margin: 0;
