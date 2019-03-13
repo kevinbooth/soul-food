@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <div id="nav" class="container">
-      <router-link to="/">Home</router-link> |
+      <router-link to="/"
+        ><img class="app__logo" alt="Jesus Christ" src="./assets/logo.png"
+      /></router-link>
       <router-link to="/about">About</router-link>
     </div>
     <router-view />
@@ -25,5 +27,8 @@
       color: #6bcaff;
     }
   }
+}
+.app__logo {
+  max-width: 70px;
 }
 </style>
